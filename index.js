@@ -230,17 +230,27 @@ function getArtistByIndex(array, index) {
     // output: string mentioning the name of the artist at its given index
     return `The artist at index ${index} is ${array[index].name}.`;
   }
-  
+  getArtistByIndex(artists,0);
   /**
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/* Code here */){
+function get20s(arrOfObj){
 
-  /* Code here */
-
-}
+  //   /* Code here */
+  //   // input: data
+  //   // output: array with data that meets the qualifier (born in the 20th century)
+    let newArr = [];
+    for (let i = 0; i < arrOfObj.length; i++) {
+      if (arrOfObj[i].years.includes('190')) {
+        newArr.push(arrOfObj[i].name)
+      }
+    }
+    return newArr;
+  }
+  
+  get20s(artists);
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
@@ -259,7 +269,9 @@ function removeArtist(array,index) {
     // output: an array that has one artist deleted. Only showing the new length of the array.
     array.splice(index,1);
     console.log(array.length);
-  }
+  };
+
+  removeArtist(artists,0);
   
  
 
@@ -300,11 +312,13 @@ function lotsOfArt(arrOfObj){
   let newArr = [];
   for (let i = 0; i < arrOfObj.length; i++) {
     if (arrOfObj[i].paintings > 100) {
-      newArr.push(arrOfObj[i]);
+      newArr.push(arrOfObj[i].name);
     }
   }
   return newArr;
 }
+
+lotsOfArt(artists);
 
 
 
