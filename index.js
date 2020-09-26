@@ -207,12 +207,14 @@ const artists = [
 
 (1) Name of the first artist (0th index) in the array
 (2) Bio of the third artist (2nd index) in the array */
-
+console.log(artists[0].name);
+console.log(artists[2].bio);
 
 
 /* Task 2: There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
 
-
+artists[8].name = 'Vincent Van Gogh';
+console.log(artists[8]);
 
 /* Task 3: Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
@@ -224,6 +226,9 @@ const artists = [
 */
 function getArtistByIndex(array, index) {
     /* code here */
+    //input: array of objects, index
+    // output: string mentioning the name of the artist at its given index
+    return `The artist at index ${index} is ${array[index].name}.`;
   }
   
   /**
@@ -248,8 +253,12 @@ function get20s(/* Code here */){
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*code here*/) {
+function removeArtist(array,index) {
     /* code here */
+    // input: array of objects with artists. Index of the desired artist to be deleted
+    // output: an array that has one artist deleted. Only showing the new length of the array.
+    array.splice(index,1);
+    console.log(array.length);
   }
   
  
@@ -267,11 +276,12 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/* Code here */){
-
-    /* Code here */
-
+function addArtist(arr,obj){
+    arr.push(obj);
+    return arr;
   }
+
+  addArtist(artists,{id: 20, name: 'Mostafa Wanas', years: '1988 - September 26 2020', genre: 'Web Design', nationality: 'Egyptian', bio: 'A banking veteran and an aspring software engineer'});
 
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
@@ -281,10 +291,19 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/* Code here */){
+function lotsOfArt(arrOfObj){
 
   /* Code here */
-
+  // input: array of objects
+  // output: new array of objects that meet the qualifier
+  // exeuction: loop with an if. push those meeting the qualifier. return new array.
+  let newArr = [];
+  for (let i = 0; i < arrOfObj.length; i++) {
+    if (arrOfObj[i].paintings > 100) {
+      newArr.push(arrOfObj[i]);
+    }
+  }
+  return newArr;
 }
 
 
